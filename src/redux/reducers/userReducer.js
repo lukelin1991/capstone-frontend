@@ -1,7 +1,6 @@
 let initialState = {
     username: "",
-    companyusers: [],
-    applications: [],
+    email:"",
     token: ""
 }
 
@@ -10,9 +9,8 @@ let userReducer = (state = initialState, action) => {
         case "SET_USER_INFO":
             return {
                 ...state,
-                username: action.payload,
-                companyusers: action.payload,
-                applications: action.payload,
+                username: action.payload.user.username,
+                email: action.payload.user.email,
                 token: action.payload.token
             }
         

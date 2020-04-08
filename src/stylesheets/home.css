@@ -1,0 +1,7 @@
+.main{
+    background-image: url('../Hemp-Farmer.jpg');
+    filter: contrast(1);
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 305px;
+}

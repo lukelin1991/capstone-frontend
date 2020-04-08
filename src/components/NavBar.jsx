@@ -1,33 +1,58 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {logOut} from '../redux/actions'
+import { connect } from 'react-redux'
+import { logOut } from '../redux/actions/actions'
+import { NavLink } from 'react-router-dom'
+import {Navbar, Button, NavDropdown, Container, ListGroup } from 'react-bootstrap'
 
 const NavBar = (props) => {
 
-    const handleClick = () => {
-        console.log("log out")
+    let handleClick = () => {
+        console.log("logging out")
         props.logOut()
-        localStorage.logOut()
+        localStorage.clear()
     }
+
     return(
-        <ul className="nav">
-            <li>
-                <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-                <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-                <NavLink to="register">Register</NavLink>
-            </li>
-            <li>
-                <NavLink to="profile">Profile</NavLink>
-            </li>
-            <li>
-                <NavLink onClick={handleClick}>Log Out</NavLink>
-            </li>
-        </ul>
+        <div>
+            <Navbar className="navbar" bg="dark" variant="dark">
+                <Container className="mx-auto">
+                    <h1><a className="title" href='/'>CannaJobs-DetoxITT</a></h1>
+                </Container>
+                
+                <NavDropdown title="Menu" id="nav-dropdown">
+                    <ListGroup>
+                        <ListGroup.Item >
+                            <NavLink to="/" exact>Home</NavLink>
+                        </ListGroup.Item>
+
+                        <ListGroup.Item >
+                            <NavLink to="/companies" exact>Companies</NavLink>
+                        </ListGroup.Item>
+
+                        <ListGroup.Item >
+                            <NavLink to="/jobs" exact>Jobs</NavLink>
+                        </ListGroup.Item>
+
+                        <ListGroup.Item >
+                            <NavLink to="/users" exact>Users</NavLink>
+                        </ListGroup.Item>
+
+                        <ListGroup.Item >
+                            <NavLink to="/profile" exact>My Profile</NavLink>
+                        </ListGroup.Item>
+
+                        <ListGroup.Item >
+                            <NavLink to="/register" exact>Register</NavLink>
+                        </ListGroup.Item>
+
+                    </ListGroup>
+                </NavDropdown>
+                {localStorage.token?
+                <Button variant="success" href='/' onClick={handleClick}>Logout</Button>
+                :
+                <Button variant="success" href='/login'>Login</Button>}
+            </Navbar>
+        </div>
     )
 }
 

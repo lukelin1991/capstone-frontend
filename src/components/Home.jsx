@@ -1,8 +1,18 @@
 import React from 'react'
+import { Jumbotron } from 'react-bootstrap'
+import '../stylesheets/home.css'
 
 const Home = () => (
-    <div>
-        <h1 id="header">Welcome to Home</h1>
-        <p>this is home</p>
+    <div className="main">
+        <Jumbotron style={{
+                    opacity: 0.8,
+                    marginTop:-300}}>
+            <h1>CannaJobs/DetoxITT</h1>
+            <br/>
+            <h4>
+                Helping you become a leader and a life changer in the Hemp/Cannabis Industry one step at a time.
+            </h4>
+        </Jumbotron>
     </div>
 )
+export default Home
