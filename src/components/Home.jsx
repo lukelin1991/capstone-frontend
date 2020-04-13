@@ -7,7 +7,11 @@ const Home = () => (
         <Jumbotron style={{
                     opacity: 0.8,
                     marginTop:-300}}>
-            <h1>CannaJobs/DetoxITT</h1>
+            <h1 style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}>CannaJobs</h1>
             <br/>
             <h4>
                 Helping you become a leader and a life changer in the Hemp/Cannabis Industry one step at a time.

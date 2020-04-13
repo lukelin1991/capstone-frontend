@@ -1,12 +1,6 @@
 // function definition to be used, only return an action.
 
 // ACTIONS FOR CURRENT USER --------------------
-export const userPostFetch = user => {
-    return dispatch => {
-        return fetch("http://localhost:3000/users")
-    }
-}
-
 export const logOut = () => {
     return {
         type: "LOG_OUT"
@@ -28,6 +22,14 @@ export const setAllUsers = (usersArr) => {
     }
 }
 
+export const addApplication = (userAppObj) => {
+    let actionObj = {
+        type: "ADD_APPLICATION",
+        payload: userAppObj
+    }
+    return actionObj
+}
+
 // ACTIONS FOR COMPANIES ---------------------
 export const setAllCompanies = (companiesArr) => {
     return {
@@ -41,4 +43,12 @@ export const setAllJobs = (jobsArr) => {
         type: "SET_ALL_JOBS",
         payload: jobsArr
     }
+}
+
+export const addJob = (jobObj) => {
+   let actionObj = {
+       type: "ADD_JOB",
+       payload: jobObj
+   }
+   return actionObj
 }

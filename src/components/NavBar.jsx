@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { logOut } from '../redux/actions/actions'
 import { NavLink } from 'react-router-dom'
-import {Navbar, Button, NavDropdown, Container, ListGroup } from 'react-bootstrap'
+import { Navbar, Button, NavDropdown, Container, ListGroup } from 'react-bootstrap'
 
 const NavBar = (props) => {
 
@@ -15,10 +15,10 @@ const NavBar = (props) => {
     return(
         <div>
             <Navbar className="navbar" bg="dark" variant="dark">
-                <Container className="mx-auto">
-                    <h1><a className="title" href='/'>CannaJobs-DetoxITT</a></h1>
+                <Container>
+                    <h1><a className="title" href='/'>CannaJobs</a></h1>
                 </Container>
-                
+
                 <NavDropdown title="Menu" id="nav-dropdown">
                     <ListGroup>
                         <ListGroup.Item >
@@ -37,9 +37,13 @@ const NavBar = (props) => {
                             <NavLink to="/users" exact>Users</NavLink>
                         </ListGroup.Item>
 
-                        <ListGroup.Item >
-                            <NavLink to="/profile" exact>My Profile</NavLink>
-                        </ListGroup.Item>
+                        {localStorage.token ? 
+                            <ListGroup.Item >
+                                <NavLink to="/profile" exact>My Profile</NavLink>
+                            </ListGroup.Item>
+                            :
+                            null
+                        }
 
                         <ListGroup.Item >
                             <NavLink to="/register" exact>Register</NavLink>

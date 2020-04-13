@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Container, CardColumns } from 'react-bootstrap'
+import { CardColumns } from 'react-bootstrap'
 import CompanyCard from '../CompanyCard'
+import '../../stylesheets/home.css'
 
 const CompaniesContainer = (props) => {
     return(
-        <Container>
+        <div className="backGrd">
             <h2>List of Companies</h2>
             <CardColumns>
                 {
@@ -14,7 +15,7 @@ const CompaniesContainer = (props) => {
                     })
                 }
             </CardColumns>
-        </Container>
+        </div>
     )
 }
 
