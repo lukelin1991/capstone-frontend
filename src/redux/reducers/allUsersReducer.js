@@ -9,6 +9,12 @@ let allUsersReducer = (state = initialState, action) => {
                 ...state,
                 all: action.payload
             }
+        case "DELETE_USER":
+            return {
+                ...state,
+                all: state.all.filter(eachUser => eachUser.id !== action.payload)
+            }
+
         default:
             return state
     }

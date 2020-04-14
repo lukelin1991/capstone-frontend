@@ -14,6 +14,14 @@ export const setUserInfo = (respFromFetch) => {
     }
 }
 
+export const addApplication = (userAppObj) => {
+    let actionObj = {
+        type: "ADD_APPLICATION",
+        payload: userAppObj
+    }
+    return actionObj
+}
+
 // ACTIONS FOR ALL USERS ---------------------
 export const setAllUsers = (usersArr) => {
     return {
@@ -22,10 +30,10 @@ export const setAllUsers = (usersArr) => {
     }
 }
 
-export const addApplication = (userAppObj) => {
+export const deleteUser = (user) => {
     let actionObj = {
-        type: "ADD_APPLICATION",
-        payload: userAppObj
+        type: "DELETE_USER",
+        payload: user.id
     }
     return actionObj
 }

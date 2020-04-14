@@ -26,6 +26,7 @@ let userReducer = (state = initialState, action) => {
                 ...state,
                 applications: copyOfArray
             }
+        
         case "LOG_OUT":
             return {
                 ...state,

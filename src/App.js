@@ -24,7 +24,6 @@ class App extends Component {
       })
       .then(r => r.json())
       .then((resp) => {
-        console.log(resp)
         this.props.setUserInfo(resp)
         this.props.history.push("/")
       })

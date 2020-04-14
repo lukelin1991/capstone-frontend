@@ -1,27 +1,76 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Button, Alert} from 'react-bootstrap'
+import { Button, Alert } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 import '../../stylesheets/home.css'
+import { deleteUser } from '../../redux/actions/actions'
 
-class ProfileContainer extends Component {
-    render(){
-        return(
-            <div className="profileBackGrd">
-                {localStorage.token ? 
-                    <div>
-                        <h2>My Profile</h2>
-                        <p>Username: {this.props.user.username}</p>
-                        <p>Email: {this.props.user.email}</p>
-                        <p>Company: {this.props.user.companies.length !== 0 ? this.props.user.companies[0].name : "None"}</p>
-                        <p>How many Jobs I've Applied to: {this.props.applications.length}</p>
-                        <Button>Delete</Button>
-                    </div>
-                    :
-                    <h1>Please Register Or Log In First</h1>
-                }
-            </div>
-        )
+const  ProfileContainer = (props) => {
+    const [show, setShow] = useState(false);
+    const [confirmation, setConfirmation] = useState("");
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const history = useHistory()
+
+    const handleChange = (e) => {
+        let { value } = e.target
+        setConfirmation(value)
     }
+
+    const handleDelete = () => {
+        confirmation === "I confirm that I will delete this account" ? 
+            fetch(`http://localhost:3000/users/${props.user.id}`, {
+                method: 'DELETE',
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `bearer ${localStorage.token}`
+                }
+            })
+            .then(r => r.json())
+            .then(data => {
+                deleteUser(data)
+                localStorage.clear()
+                history.push('/')
+                window.location.reload()
+            })
+        :
+        alert("Sorry, your confirmation input is incorrect.");
+    }
+
+    return(
+        <div className="profileBackGrd">
+            {localStorage.token ? 
+                <div>
+                    <Alert show={show} variant="danger" onClose={handleClose} dismissible>
+                        <Alert.Heading>Are you sure?!</Alert.Heading>
+                        <h5>
+                        In order to confirm deleting your character, 
+                        please type in the following inputs before clicking "Confirm Delete", 
+                        or else press the x on the top right hand corner.
+                        </h5>
+                        <br />
+                        <h6>please type "I confirm that I will delete this account" </h6>
+                        <input type="confirmation" name="confirmation" value={confirmation} onChange={handleChange}/>
+                        <hr />
+                        <div className="d-flex justify-content-end">
+                            <Button onClick={handleDelete} variant="outline-danger">
+                                Confirm Delete!
+                            </Button>
+                        </div>
+                    </Alert>
+                    <h2>My Profile</h2>
+                    <p>Username: {props.user.username}</p>
+                    <p>Email: {props.user.email}</p>
+                    <p>Company: {props.user.companies.length !== 0 ? props.user.companies[0].name : "None"}</p>
+                    <p>How many Jobs I've Applied to: {props.applications.length}</p>
+                    <Button onClick={handleShow}>Delete</Button>
+                </div>
+                :
+                <h1>Please Register Or Log In First</h1>
+            }
+        </div>
+    )
 }
 
 const mstp = (reduxState) => {
@@ -32,4 +81,4 @@ const mstp = (reduxState) => {
     }
 }
 
-export default connect(mstp, {})(ProfileContainer)
+export default connect(mstp, {deleteUser})(ProfileContainer)
