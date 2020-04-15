@@ -1,0 +1,30 @@
+.main{
+    background-image: url('../Hemp-Farmer.jpg');
+    filter: contrast(1);
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 305px;
+}
+
+.backGrd{
+    background-image: url('../background-leaves.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;    
+}
+
+.profileBackGrd{
+    background-image: url('../background-leaves.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    padding-bottom: 350px;
+}
+
+h2 {
+    color: whitesmoke
+}
+
+.profileBackGrd p {
+    color: whitesmoke
+}
