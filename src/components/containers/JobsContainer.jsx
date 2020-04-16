@@ -64,6 +64,8 @@ const JobsContainer = (props) => {
         <div className="backGrd">
             <h2>List of Jobs</h2>
             {localStorage.token && props.user.companies.length !== 0 ? <Button variant="info" onClick={handleShow}>Create job</Button> : null }
+            <br />
+            <br />
             <CardColumns>
                 {
                     props.jobs.map((jobObj) => {

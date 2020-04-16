@@ -30,12 +30,12 @@ class Login extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="formBasicUsername">
               <Form.Label>Username</Form.Label>
-              <Form.Control type="username" name="username" value={username} placeholder="Enter username" onChange={this.handleChange} />
+              <Form.Control type="username" name="username" autoComplete="off" value={username} placeholder="Enter username" onChange={this.handleChange} />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" name="password"
+              <Form.Control type="password" name="password" autoComplete="off"
               value={password} placeholder="Password" onChange={this.handleChange}/>
           </Form.Group>
           <Button variant="primary" type="submit" value="Submit">

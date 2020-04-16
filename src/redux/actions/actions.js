@@ -22,6 +22,14 @@ export const addApplication = (userAppObj) => {
     return actionObj
 }
 
+export const addCompanyUser = (companyUserObj) => {
+    let actionObj = {
+        type: "ADD_COMPANYUSER",
+        payload: companyUserObj
+    }
+    return actionObj
+}
+
 // ACTIONS FOR ALL USERS ---------------------
 export const setAllUsers = (usersArr) => {
     return {

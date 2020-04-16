@@ -39,7 +39,7 @@ const CompaniesContainer = (props) => {
     return(
         <div className="backGrd">
             <h2>List of Companies</h2>
-            {localStorage.token ? <Button onClick={handleShow}>Create Company</Button> : null }
+            {localStorage.token ? <Button variant="info" onClick={handleShow}>Create Company</Button> : null }
             <br />
             <br />
             <CardColumns>
