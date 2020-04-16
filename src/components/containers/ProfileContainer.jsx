@@ -86,7 +86,7 @@ const  ProfileContainer = (props) => {
                         </h5>
                         <br />
                         <h6>please type "I confirm that I will delete this account" </h6>
-                        <input type="confirmation" name="confirmation" value={confirmation} onChange={handleChange}/>
+                        <input type="confirmation" name="confirmation" autoComplete="off" value={confirmation} onChange={handleChange}/>
                         <hr />
                         <div className="d-flex justify-content-end">
                             <Button onClick={handleDelete} variant="outline-danger">
@@ -98,7 +98,7 @@ const  ProfileContainer = (props) => {
                     <h2>My Profile</h2>
                     <p>Username: {props.user.username}</p>
                     <p>Email: {props.user.email}</p>
-                    <p>Company: {props.user.companies.length !== 0 ? props.user.companies.name : "None"}</p>
+                    <p>Company: {props.user.companies.length !== 0 ? props.user.companies[0].name : "None"}</p>
                     <p>How many Jobs I've Applied to: {props.applications.length}</p>
                     <Button variant="info" onClick={handleShow}>Delete</Button>
                     {' '}
