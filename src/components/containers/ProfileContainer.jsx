@@ -65,6 +65,9 @@ const  ProfileContainer = (props) => {
                     <p>Company: {props.user.companies.length !== 0 ? props.user.companies[0].name : "None"}</p>
                     <p>How many Jobs I've Applied to: {props.applications.length}</p>
                     <Button onClick={handleShow}>Delete</Button>
+                    <br />
+                    <br />
+                    <Button>Join a Company</Button>
                 </div>
                 :
                 <h1>Please Register Or Log In First</h1>

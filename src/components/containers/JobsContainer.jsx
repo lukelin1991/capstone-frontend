@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { CardColumns, Button, Modal, Form } from 'react-bootstrap'
-import { setAllJobs, addJob } from '../../redux/actions/actions'
+import { addJob } from '../../redux/actions/actions'
 import JobCard from '../JobCard'
 import '../../stylesheets/home.css'
 
@@ -117,4 +117,4 @@ const mstp = (reduxState) => {
     }
 }
 
-export default connect(mstp, {setAllJobs, addJob})(JobsContainer)
+export default connect(mstp, { addJob })(JobsContainer)
