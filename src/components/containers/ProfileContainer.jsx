@@ -71,6 +71,8 @@ const  ProfileContainer = (props) => {
         setCompanyChosen(value)
     }
 
+    console.log(props.user)
+
     return(
         <div className="profileBackGrd">
             {localStorage.token ? 
@@ -96,7 +98,7 @@ const  ProfileContainer = (props) => {
                     <h2>My Profile</h2>
                     <p>Username: {props.user.username}</p>
                     <p>Email: {props.user.email}</p>
-                    <p>Company: {props.user.companies.length !== 0 ? props.user.companies[0].name : "None"}</p>
+                    <p>Company: {props.user.companies.length !== 0 ? props.user.companies.name : "None"}</p>
                     <p>How many Jobs I've Applied to: {props.applications.length}</p>
                     <Button variant="info" onClick={handleShow}>Delete</Button>
                     {' '}

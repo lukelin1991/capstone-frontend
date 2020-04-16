@@ -4,7 +4,7 @@ let initialState = {
     token: "",
     id: null,
     applications: [],
-    companyusers: [],
+    companyusers: {},
     companies: [],
     jobs: []
 }
@@ -19,7 +19,8 @@ let userReducer = (state = initialState, action) => {
                 token: action.payload.token,
                 id: action.payload.user.id,
                 applications: action.payload.user.applications,
-                companies: action.payload.user.companies
+                companyusers: action.payload.user.companyusers[0],
+                companies: action.payload.user.companies[0]
             }
         case "ADD_APPLICATION":
             let applicationArray = [...state.applications, action.payload]
