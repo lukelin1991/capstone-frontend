@@ -19,22 +19,23 @@ const  ProfileContainer = (props) => {
         setConfirmation(value)
     }
 
+    const deleteFetch = () => {
+        fetch(`http://localhost:3000/users/${props.user.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `bearer ${localStorage.token}`
+            }
+        })
+        deleteUser(props.user)
+        localStorage.clear()
+        history.push('/')
+        window.location.reload()
+    }
+
     const handleDelete = () => {
-        confirmation === "I confirm that I will delete this account" ? 
-            fetch(`http://localhost:3000/users/${props.user.id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `bearer ${localStorage.token}`
-                }
-            })
-            .then(r => r.json())
-            .then(data => {
-                deleteUser(data)
-                localStorage.clear()
-                history.push('/')
-                window.location.reload()
-            })
+        confirmation === "I confirm that I will delete this account" ?
+            deleteFetch()
         :
             alert("Sorry, your confirmation input is incorrect.");
     }
