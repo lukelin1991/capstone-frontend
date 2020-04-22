@@ -27,13 +27,13 @@ class Register extends Component {
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Group controlId="formBasicUsername">
                             <Form.Label>Username</Form.Label>
-                            <Form.Control type="username" name="username" value={username} 
+                            <Form.Control type="username" name="username" autoComplete="off" value={username} 
                             placeholder="Enter username" onChange={this.handleChange} />
                         </Form.Group>
 
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" name="email" value={email}
+                            <Form.Control type="email" autoComplete="off" name="email" value={email}
                             placeholder="Enter email" onChange={this.handleChange}/>
 
                             <Form.Text className="text-muted">
@@ -43,7 +43,7 @@ class Register extends Component {
 
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" name="password" value={password} 
+                            <Form.Control type="password" name="password" autoComplete="off" value={password} 
                             placeholder="Password" onChange={this.handleChange}/>
                         </Form.Group>
 

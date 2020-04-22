@@ -45,10 +45,13 @@ const NavBar = (props) => {
                             null
                         }
 
-                        <ListGroup.Item >
-                            <NavLink to="/register" exact>Register</NavLink>
-                        </ListGroup.Item>
-
+                        {localStorage.token ? 
+                            null
+                            :
+                            <ListGroup.Item >
+                                <NavLink to="/register" exact>Register</NavLink>
+                            </ListGroup.Item>
+                        }
                     </ListGroup>
                 </NavDropdown>
                 {localStorage.token?

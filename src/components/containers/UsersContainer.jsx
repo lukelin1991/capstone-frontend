@@ -8,6 +8,8 @@ const UsersContainer = (props) => {
     return(
         <div className="backGrd">
             <h2>List of Users</h2>
+            <br />
+            <br />
             <CardColumns>
                 {
                     props.users.map((userObj) => {

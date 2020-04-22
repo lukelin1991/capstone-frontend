@@ -84,6 +84,7 @@ class App extends Component {
     })
     .then(r => r.json())
     .then((resp) => {
+      console.log(resp)
       localStorage.token = resp.token
       this.props.setUserInfo(resp)
       this.props.history.push("/")

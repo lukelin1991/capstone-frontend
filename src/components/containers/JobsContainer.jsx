@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { CardColumns, Button, Modal, Form } from 'react-bootstrap'
-import { setAllJobs, addJob } from '../../redux/actions/actions'
+import { addJob } from '../../redux/actions/actions'
 import JobCard from '../JobCard'
 import '../../stylesheets/home.css'
 
@@ -64,6 +64,8 @@ const JobsContainer = (props) => {
         <div className="backGrd">
             <h2>List of Jobs</h2>
             {localStorage.token && props.user.companies.length !== 0 ? <Button variant="info" onClick={handleShow}>Create job</Button> : null }
+            <br />
+            <br />
             <CardColumns>
                 {
                     props.jobs.map((jobObj) => {
@@ -117,4 +119,4 @@ const mstp = (reduxState) => {
     }
 }
 
-export default connect(mstp, {setAllJobs, addJob})(JobsContainer)
+export default connect(mstp, { addJob })(JobsContainer)
